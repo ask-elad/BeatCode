@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "BeatCode",
+  "version": "2.0.0",
+  "description": "Automatically pushes accepted LeetCode solutions to a hardcoded GitHub repository.",
+  "permissions": [],
+  "host_permissions": [
+    "https://leetcode.com/problems/*",
+    "https://api.github.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "BeatCode Auto Pusher"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
